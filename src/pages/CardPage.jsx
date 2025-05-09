@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 
 export const CardPage = () => {
   const cardContent = {
+    name: "card",
     title: "Card Component",
     description: `The Card component is a flexible container that can be used to group related content and actions. It's a versatile component that can be used for various purposes, from displaying information to creating interactive elements.
 

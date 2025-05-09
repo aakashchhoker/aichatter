@@ -4,6 +4,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 
 export const AccordionPage = () => {
   const accordionContent = {
+    name: "Accordion",
     title: "Accordion Component",
     description: `The Accordion component is a vertically stacked set of interactive headings that each reveal an associated section of content. It's commonly used to organize and present information in a collapsible format, reducing vertical space while maintaining easy access to all content.
 

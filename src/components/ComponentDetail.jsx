@@ -1,48 +1,61 @@
-import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Check, Copy } from 'lucide-react'
-import { useToast } from '@/components/ui/use-toast'
+import {
+  TypographyH1,
+  TypographyH2,
+  TypographyP,
+} from "@/components/ui/typography";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Check, Copy, ExternalLink } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
-export function ComponentDetail({ 
-  name, 
-  description, 
-  variants = [], 
-  examples = [], 
-  codeExample = '',
-  usage = '',
-  props = []
+export function ComponentDetail({
+  name,
+  description,
+  variants = [],
+  examples = [],
+  codeExample = "",
+  usage = "",
+  props = [],
 }) {
-  const [copied, setCopied] = useState(false)
-  const { toast } = useToast()
+  console.log("🚀 ~ name:", name,props, description)
+  const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(codeExample)
-      setCopied(true)
+      await navigator.clipboard.writeText(codeExample);
+      setCopied(true);
       toast({
         title: "Code copied!",
         description: "The code has been copied to your clipboard.",
         duration: 2000,
-      })
-      setTimeout(() => setCopied(false), 2000)
+      });
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       toast({
         title: "Failed to copy",
         description: "Please try copying manually",
         variant: "destructive",
-      })
+      });
     }
-  }
+  };
 
   return (
     <div className="container mx-auto p-8 space-y-8">
       <div className="space-y-4">
-        <TypographyH1>{name}</TypographyH1>
-        <TypographyP className="text-muted-foreground">{description}</TypographyP>
+        <TypographyH1>Explanation</TypographyH1>
+        <TypographyP className="text-muted-foreground">
+          {description}
+        </TypographyP>
       </div>
 
       <Tabs defaultValue="preview" className="space-y-4">
@@ -51,6 +64,7 @@ export function ComponentDetail({
           <TabsTrigger value="code">Code</TabsTrigger>
           <TabsTrigger value="usage">Usage</TabsTrigger>
           {props.length > 0 && <TabsTrigger value="props">Props</TabsTrigger>}
+          <TabsTrigger value="shadcn">Shadcn UI</TabsTrigger>
         </TabsList>
 
         <TabsContent value="preview" className="space-y-4">
@@ -64,9 +78,7 @@ export function ComponentDetail({
                       <CardTitle>{variant.name}</CardTitle>
                       <CardDescription>{variant.description}</CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      {variant.example}
-                    </CardContent>
+                    <CardContent>{variant.example}</CardContent>
                   </Card>
                 ))}
               </div>
@@ -83,9 +95,7 @@ export function ComponentDetail({
                       <CardTitle>{example.title}</CardTitle>
                       <CardDescription>{example.description}</CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      {example.content}
-                    </CardContent>
+                    <CardContent>{example.content}</CardContent>
                   </Card>
                 ))}
               </div>
@@ -128,9 +138,7 @@ export function ComponentDetail({
               <CardTitle>Usage Guide</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="prose dark:prose-invert max-w-none">
-                {usage}
-              </div>
+              <div className="prose dark:prose-invert max-w-none">{usage}</div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -168,7 +176,55 @@ export function ComponentDetail({
             </Card>
           </TabsContent>
         )}
+
+        <TabsContent value="shadcn">
+          <Card>
+            <CardHeader>
+              <CardTitle>Shadcn UI Documentation</CardTitle>
+              <CardDescription>
+                Information about this component from Shadcn UI
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="relative">
+              <a
+                href={`https://ui.shadcn.com/docs/components/${name ? name.toLowerCase() : 'docs'}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-2 right-2 text-muted-foreground hover:text-primary transition-colors"
+                title={`View ${name || 'component'} on Shadcn UI`}
+              >
+                <ExternalLink className="w-5 h-5" />
+              </a>
+              <div className="prose dark:prose-invert max-w-none space-y-4">
+                <TypographyH2>About Shadcn UI</TypographyH2>
+                <TypographyP>
+                  Shadcn UI is a collection of re-usable components built using
+                  Radix UI and Tailwind CSS. These components are designed to be
+                  accessible, customizable, and easy to use.
+                </TypographyP>
+
+                <TypographyH2>Component Features</TypographyH2>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Built with Radix UI primitives for accessibility</li>
+                  <li>Styled with Tailwind CSS for easy customization</li>
+                  <li>Fully typed with TypeScript</li>
+                  <li>Dark mode support out of the box</li>
+                  <li>Customizable through CSS variables</li>
+                </ul>
+
+                <TypographyH2>Installation</TypographyH2>
+                <TypographyP>
+                  To use this component in your project, you can install it
+                  using the Shadcn UI CLI:
+                </TypographyP>
+                <pre className="bg-muted p-4 rounded-md">
+                  <code>npx shadcn-ui@latest add {name?.toLowerCase()}</code>
+                </pre>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
       </Tabs>
     </div>
-  )
-} 
+  );
+}

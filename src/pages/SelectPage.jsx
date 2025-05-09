@@ -9,7 +9,8 @@ import {
 } from "../components/ui/select";
 
 export const SelectPage = () => {
-  const selectContent = {
+  const selectContent = { 
+    name: "select",
     title: "Select Component",
     description: `The Select component is a form control that allows users to choose an option from a dropdown list.
 

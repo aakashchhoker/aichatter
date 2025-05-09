@@ -44,6 +44,7 @@ export const FormPage = () => {
   });
 
   const formContent = {
+    name: "form",
     title: "Form Component",
     description: `The Form component provides a structured way to handle form inputs, validation, and submission.
 

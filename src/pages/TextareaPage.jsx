@@ -5,6 +5,7 @@ import { Label } from "../components/ui/label";
 
 export const TextareaPage = () => {
   const textareaContent = {
+    name: "textarea",
     title: "Textarea Component",
     description: `The Textarea component provides a multi-line text input field for longer text content.
 

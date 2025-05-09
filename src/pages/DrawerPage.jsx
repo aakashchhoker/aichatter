@@ -14,6 +14,7 @@ import { Button } from "../components/ui/button";
 
 export const DrawerPage = () => {
   const drawerContent = {
+    name: "drawer",
     title: "Drawer Component",
     description: `The Drawer component provides a sliding panel that appears from the edge of the screen, typically used for navigation or displaying additional content.
 

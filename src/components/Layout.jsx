@@ -86,7 +86,7 @@ export function Layout({ children }) {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-30">
         <div className="h-full flex items-center justify-between px-6">
-          <h1 className="text-xl font-bold text-gray-800 dark:text-gray-200">AI Chatter Components</h1>
+          <h1 className="text-xl font-bold text-gray-800 dark:text-gray-200">UI/Ux Explainer</h1>
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"

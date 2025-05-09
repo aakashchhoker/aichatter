@@ -42,7 +42,8 @@ export const ChartPage = () => {
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-  const chartContent = {
+  const chartContent = {  
+    name: "chart",
     title: "Chart Component",
     description: `The Chart component provides various types of data visualization options. It's built on top of Recharts and offers a wide range of chart types and customization options.
 

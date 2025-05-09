@@ -4,6 +4,7 @@ import { Button } from "../components/ui/button";
 
 export const ButtonPage = () => {
   const buttonContent = {
+    name: "button",
     title: "Button Component",
     description: `The Button component is a fundamental UI element that allows users to trigger actions or events. It supports various styles and sizes to accommodate different use cases and design requirements.
 

@@ -7,7 +7,8 @@ import { Toaster } from "../components/ui/toaster";
 export const ToastPage = () => {
   const { toast } = useToast();
   
-  const toastContent = {
+  const toastContent = {  
+    name: "toast",
     title: "Toast Component",
     description: `The Toast component provides a way to display temporary notifications to users.
 

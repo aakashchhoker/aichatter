@@ -3,7 +3,8 @@ import { ComponentDetail } from "../components/ComponentDetail";
 import { Skeleton } from "../components/ui/skeleton";
 
 export const SkeletonPage = () => {
-  const skeletonContent = {
+  const skeletonContent = { 
+    name: "skeleton",
     title: "Skeleton Component",
     description: `The Skeleton component is used to create loading states for content that is being fetched or processed. It provides a visual placeholder that mimics the shape of the content that will be loaded.
 

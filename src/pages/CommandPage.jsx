@@ -16,6 +16,7 @@ import { Calculator, Calendar, CreditCard, Settings, Smile, User } from "lucide-
 
 export const CommandPage = () => {
   const commandContent = {
+    name: "command",
     title: "Command Component",
     description: `The Command component is a command palette interface that provides a powerful way to navigate and execute commands in your application. It's commonly used for quick actions, navigation, and search functionality.
 

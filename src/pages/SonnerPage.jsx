@@ -5,7 +5,8 @@ import { Button } from "../components/ui/button";
 import { Toaster } from "../components/ui/sonner";
 
 export const SonnerPage = () => {
-  const sonnerContent = {
+  const sonnerContent = { 
+    name: "sonner",
     title: "Sonner Toast Component",
     description: `The Sonner toast component provides a simple and elegant way to display notifications in your application. It's lightweight, customizable, and provides a great user experience.
 

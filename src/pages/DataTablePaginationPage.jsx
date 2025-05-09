@@ -21,6 +21,7 @@ import {
 
 export const DataTablePaginationPage = () => {
   const dataTablePaginationContent = {
+    name: "data-table",
     title: "Data Table Pagination Component",
     description: `The Data Table Pagination component provides navigation controls for paginated data tables. It helps users navigate through large datasets by breaking them into manageable pages.
 

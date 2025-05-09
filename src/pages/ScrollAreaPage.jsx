@@ -3,7 +3,8 @@ import { ComponentDetail } from "../components/ComponentDetail";
 import { ScrollArea } from "../components/ui/scroll-area";
 
 export const ScrollAreaPage = () => {
-  const scrollAreaContent = {
+  const scrollAreaContent = { 
+    name: "scroll-area",
     title: "Scroll Area Component",
     description: `The Scroll Area component provides a custom scrollable container with a consistent cross-browser experience.
 

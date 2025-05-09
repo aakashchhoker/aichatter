@@ -12,6 +12,7 @@ import {
 
 export const MenubarPage = () => {
   const menubarContent = {
+    name: "menubar",
     title: "Menubar Component",
     description: `The Menubar component provides a horizontal menu bar with dropdown menus, similar to traditional desktop application menus. It's perfect for organizing navigation and actions in a familiar way.
 

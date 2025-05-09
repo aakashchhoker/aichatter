@@ -4,6 +4,7 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 export const AlertPage = () => {
   const alertContent = {
+    name: "alert",
     title: "Alert Component",
     description: `The Alert component is used to display important messages or notifications to users. It's a versatile component that can be styled differently based on the type of message (info, warning, error, success).
 

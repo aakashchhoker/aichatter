@@ -5,6 +5,7 @@ import { Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight } from "luc
 
 export const ToggleGroupPage = () => {
   const toggleGroupContent = {
+    name: "toggle-group",
     title: "Toggle Group Component",
     description: `The Toggle Group component provides a set of toggle buttons that can be used together.
 

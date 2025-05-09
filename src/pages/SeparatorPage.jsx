@@ -4,6 +4,7 @@ import { Separator } from "../components/ui/separator";
 
 export const SeparatorPage = () => {
   const separatorContent = {
+    name: "separator",
     title: "Separator Component",
     description: `The Separator component is a visual divider used to separate content into distinct sections.
 

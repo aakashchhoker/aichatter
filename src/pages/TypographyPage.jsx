@@ -3,7 +3,8 @@ import { ComponentDetail } from "../components/ComponentDetail";
 import { cn } from "../lib/utils";
 
 export const TypographyPage = () => {
-  const typographyContent = {
+  const typographyContent = {  
+    name: "typography",
     title: "Typography Component",
     description: `The Typography component provides a set of pre-styled text elements for consistent typography across your application.
 

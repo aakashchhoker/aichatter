@@ -11,7 +11,8 @@ import {
 } from "../components/ui/table";
 
 export const TablePage = () => {
-  const tableContent = {
+  const tableContent = {  
+    name: "table",
     title: "Table Component",
     description: `The Table component provides a structured way to display data in rows and columns. It's highly customizable and accessible.
 

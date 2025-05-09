@@ -5,6 +5,7 @@ import { Label } from "../components/ui/label";
 
 export const RadioGroupPage = () => {
   const radioGroupContent = {
+    name: "radio-group",
     title: "Radio Group Component",
     description: `The Radio Group component is a form control that allows users to select a single option from a list of choices.
 

@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 
 export const CheckboxPage = () => {
   const checkboxContent = {
+    name: "checkbox",
     title: "Checkbox Component",
     description: `The Checkbox component is a form control that allows users to select one or more options from a set. It's a versatile component that can be used in various contexts, from simple toggles to complex selection interfaces.
 

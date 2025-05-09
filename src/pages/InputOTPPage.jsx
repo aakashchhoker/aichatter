@@ -3,7 +3,8 @@ import { ComponentDetail } from "../components/ComponentDetail";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 
 export const InputOTPPage = () => {
-  const inputOTPContent = {
+  const inputOTPContent = { 
+    name: "input-otp",
     title: "Input OTP Component",
     description: `The Input OTP (One-Time Password) component is designed for entering verification codes, PINs, or other short numeric/alphanumeric sequences. It provides a user-friendly interface for entering codes digit by digit.
 

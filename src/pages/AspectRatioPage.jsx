@@ -4,6 +4,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export const AspectRatioPage = () => {
   const aspectRatioContent = {
+    name: "aspect-ratio",
     title: "Aspect Ratio Component",
     description: `The Aspect Ratio component is used to maintain consistent width-to-height ratios for content. It's particularly useful for images, videos, and other media elements that need to maintain specific proportions.
 

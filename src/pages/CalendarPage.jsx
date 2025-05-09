@@ -4,7 +4,8 @@ import { Calendar } from "@/components/ui/calendar";
 import { Card } from "@/components/ui/card";
 
 export const CalendarPage = () => {
-  const calendarContent = {
+  const calendarContent = { 
+    name: "calendar",
     title: "Calendar Component",
     description: `The Calendar component provides a date picker interface that allows users to select dates in a calendar view. It's a versatile component that supports various date selection modes and customization options.
 

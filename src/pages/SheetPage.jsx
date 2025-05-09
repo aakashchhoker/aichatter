@@ -4,7 +4,8 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Button } from "../components/ui/button";
 
 export const SheetPage = () => {
-  const sheetContent = {
+  const sheetContent = {  
+    name: "sheet",
     title: "Sheet Component",
     description: `The Sheet component is a slide-out panel that appears from the edge of the screen. It's commonly used for displaying additional content or actions without leaving the current page.
 

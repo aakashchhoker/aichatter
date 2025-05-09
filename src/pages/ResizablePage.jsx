@@ -3,7 +3,8 @@ import { ComponentDetail } from "../components/ComponentDetail";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "../components/ui/resizable";
 
 export const ResizablePage = () => {
-  const resizableContent = {
+  const resizableContent = {  
+    name: "resizable",
     title: "Resizable Component",
     description: `The Resizable component allows users to adjust the size of panels or containers by dragging handles.
 

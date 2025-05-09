@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 
 export const AlertDialogPage = () => {
   const alertDialogContent = {
+    name: "alert-dialog",
     title: "Alert Dialog Component",
     description: `The Alert Dialog component is a modal dialog that interrupts the user's workflow to get their attention. It's commonly used for confirming destructive actions or displaying critical information that requires user acknowledgment.
 

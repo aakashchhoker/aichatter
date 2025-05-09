@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const LabelPage = () => {
-  const labelContent = {
+  const labelContent = {  
+    name: "label",
     title: "Label Component",
     description: `The Label component is used to provide accessible labels for form controls and other interactive elements. It helps users understand the purpose of form fields and improves accessibility.
 

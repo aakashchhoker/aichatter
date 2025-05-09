@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 
 export const CollapsiblePage = () => {
   const collapsibleContent = {
+    name: "collapsible",
     title: "Collapsible Component",
     description: `The Collapsible component is used to create expandable/collapsible sections of content. It's similar to an accordion but allows multiple sections to be open simultaneously.
 

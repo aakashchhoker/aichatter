@@ -11,6 +11,7 @@ export const DatePickerPage = () => {
   const [date, setDate] = React.useState(null);
 
   const datePickerContent = {
+    name: "date-picker",
     title: "Date Picker Component",
     description: `The Date Picker component provides a user-friendly interface for selecting dates. It combines a calendar popover with a formatted date display.
 

@@ -74,6 +74,7 @@ export const NavigationMenuPage = () => {
   ];
 
   const navigationMenuContent = {
+    name: "navigation-menu",
     title: "Navigation Menu Component",
     description: `The Navigation Menu component provides a flexible and accessible navigation system with support for dropdown menus, links, and custom content. It's perfect for building complex navigation structures.
 

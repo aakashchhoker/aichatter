@@ -4,7 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export const InputPage = () => {
-  const inputContent = {
+  const inputContent = {  
+    name: "input",
     title: "Input Component",
     description: `The Input component is a fundamental form element that allows users to enter text or data. It's a versatile component that can be styled and configured for various input types and use cases.
 

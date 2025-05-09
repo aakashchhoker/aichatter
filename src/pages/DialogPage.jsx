@@ -13,6 +13,7 @@ import { Button } from "../components/ui/button";
 
 export const DialogPage = () => {
   const dialogContent = {
+    name: "dialog",
     title: "Dialog Component",
     description: `The Dialog component provides a modal interface for displaying content that requires user attention or interaction.
 

@@ -4,6 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 export const AvatarPage = () => {
   const avatarContent = {
+    name: "avatar",
     title: "Avatar Component",
     description: `The Avatar component is used to display user profile pictures or initials. It's a versatile component that can handle different image formats and provides fallback options when images fail to load.
 

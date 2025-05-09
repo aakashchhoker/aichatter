@@ -44,6 +44,7 @@ export const ComboboxPage = () => {
   ];
 
   const comboboxContent = {
+    name: "combobox",
     title: "Combobox Component",
     description: `The Combobox component is an enhanced select input that combines the functionality of a text input with a dropdown list. It provides search, filtering, and keyboard navigation capabilities.
 

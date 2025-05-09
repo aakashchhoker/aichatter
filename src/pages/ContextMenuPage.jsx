@@ -18,6 +18,7 @@ import {
 
 export const ContextMenuPage = () => {
   const contextMenuContent = {
+    name: "context-menu",
     title: "Context Menu Component",
     description: `The Context Menu component provides a contextual menu that appears when users right-click or use a specific gesture. It's commonly used for additional actions and options related to the clicked element.
 

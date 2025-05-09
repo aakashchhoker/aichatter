@@ -4,7 +4,8 @@ import { Switch } from "../components/ui/switch";
 import { Label } from "../components/ui/label";
 
 export const SwitchPage = () => {
-  const switchContent = {
+  const switchContent = { 
+    name: "switch",
     title: "Switch Component",
     description: `The Switch component is a toggle control that allows users to turn an option on or off. It's commonly used for boolean settings and preferences.
 

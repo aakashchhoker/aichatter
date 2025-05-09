@@ -5,6 +5,7 @@ import { Moon, Sun, Bold, Italic, Underline } from "lucide-react";
 
 export const TogglePage = () => {
   const toggleContent = {
+    name: "toggle",
     title: "Toggle Component",
     description: `The Toggle component provides a button that can be toggled on and off.
 

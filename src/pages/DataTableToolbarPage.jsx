@@ -12,6 +12,7 @@ import { Download, Filter, Search, SlidersHorizontal } from "lucide-react";
 
 export const DataTableToolbarPage = () => {
   const dataTableToolbarContent = {
+    name: "data-table",
     title: "Data Table Toolbar Component",
     description: `The Data Table Toolbar component provides a set of tools for interacting with data tables, including search, filtering, and export functionality. It helps users manage and manipulate table data effectively.
 

@@ -9,7 +9,8 @@ import { Button } from "../components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 
 export const HoverCardPage = () => {
-  const hoverCardContent = {
+  const hoverCardContent = {  
+    name: "hover-card",
     title: "Hover Card Component",
     description: `The Hover Card component provides a card that appears when hovering over a trigger element, typically used for displaying additional information or actions.
 

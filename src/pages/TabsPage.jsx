@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 
 export const TabsPage = () => {
   const tabsContent = {
+    name: "tabs",
     title: "Tabs Component",
     description: `The Tabs component provides a way to organize content into separate views where only one view is visible at a time.
 

@@ -3,7 +3,8 @@ import { ComponentDetail } from "../components/ComponentDetail";
 import { Slider } from "../components/ui/slider";
 
 export const SliderPage = () => {
-  const sliderContent = {
+  const sliderContent = { 
+    name: "slider",
     title: "Slider Component",
     description: `The Slider component allows users to select a value from a given range by moving a handle along a track. It's commonly used for adjusting settings like volume, brightness, or any numerical value within a range.
 

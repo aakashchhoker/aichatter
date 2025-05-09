@@ -11,6 +11,7 @@ import {
 
 export const BreadcrumbPages = () => {
   const breadcrumbContent = {
+    name: "breadcrumb",
     title: "Breadcrumb Component",
     description: `The Breadcrumb component provides navigation context by showing the user's location in a website or application. It helps users understand where they are and how to navigate back to previous levels.
 

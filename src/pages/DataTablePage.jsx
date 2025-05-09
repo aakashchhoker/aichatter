@@ -12,6 +12,7 @@ import {
 
 export const DataTablePage = () => {
   const dataTableContent = {
+    name: "table",
     title: "Data Table Component",
     description: `The Data Table component provides a structured way to display and interact with tabular data. It supports sorting, filtering, pagination, and other advanced features for managing large datasets.
 

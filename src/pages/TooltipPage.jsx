@@ -10,7 +10,8 @@ import {
 import { Info, Settings, HelpCircle } from "lucide-react";
 
 export const TooltipPage = () => {
-  const tooltipContent = {
+  const tooltipContent = {  
+    name: "tooltip",
     title: "Tooltip Component",
     description: `The Tooltip component provides additional information about an element when hovering over it.
 

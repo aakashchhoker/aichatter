@@ -4,6 +4,7 @@ import { cn } from "../lib/utils";
 
 export const SidebarPage = () => {
   const sidebarContent = {
+    name: "sidebar",
     title: "Sidebar Component",
     description: `The Sidebar component is a vertical navigation panel that typically appears on the side of the main content. It's used for navigation, displaying categories, or showing supplementary information.
 

@@ -14,7 +14,8 @@ import {
 import { Button } from "../components/ui/button";
 
 export const DropdownMenuPage = () => {
-  const dropdownMenuContent = {
+  const dropdownMenuContent = { 
+    name: "dropdown-menu",
     title: "Dropdown Menu Component",
     description: `The Dropdown Menu component provides a menu that appears when clicking a trigger element, typically used for displaying a list of actions or options.
 

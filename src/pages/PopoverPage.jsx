@@ -9,6 +9,7 @@ import { Button } from "../components/ui/button";
 
 export const PopoverPage = () => {
   const popoverContent = {
+    name: "popover",
     title: "Popover Component",
     description: `The Popover component is a floating element that appears when triggered, typically used to display additional information or actions.
 

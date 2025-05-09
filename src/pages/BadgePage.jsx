@@ -3,7 +3,8 @@ import { ComponentDetail } from "../components/ComponentDetail";
 import { Badge } from "@/components/ui/badge";
 
 export const BadgePage = () => {
-  const badgeContent = {
+  const badgeContent = { 
+    name: "badge",
     title: "Badge Component",
     description: `The Badge component is used to display small pieces of information, such as counts, labels, or status indicators. It's a versatile component that can be styled differently based on the context.
 
