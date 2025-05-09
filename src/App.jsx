@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Layout } from "./components/Layout";
+import { Toaster } from "./components/ui/toaster";
 import { ShowAllComponents } from "./components/ShowAllComponents";
 import { ButtonPage } from "./pages/ButtonPage";
 import { AccordionPage } from "./pages/AccordionPage";
@@ -117,6 +118,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
+        <Toaster />
       </Router>
     </ThemeProvider>
   );

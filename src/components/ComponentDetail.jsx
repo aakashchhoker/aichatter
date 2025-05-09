@@ -2,6 +2,10 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Check, Copy } from 'lucide-react'
+import { useToast } from '@/components/ui/use-toast'
 
 export function ComponentDetail({ 
   name, 
@@ -12,6 +16,28 @@ export function ComponentDetail({
   usage = '',
   props = []
 }) {
+  const [copied, setCopied] = useState(false)
+  const { toast } = useToast()
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(codeExample)
+      setCopied(true)
+      toast({
+        title: "Code copied!",
+        description: "The code has been copied to your clipboard.",
+        duration: 2000,
+      })
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      toast({
+        title: "Failed to copy",
+        description: "Please try copying manually",
+        variant: "destructive",
+      })
+    }
+  }
+
   return (
     <div className="container mx-auto p-8 space-y-8">
       <div className="space-y-4">
@@ -73,11 +99,25 @@ export function ComponentDetail({
               <CardTitle>Code Example</CardTitle>
             </CardHeader>
             <CardContent>
-              <ScrollArea className="h-[400px] rounded-md border p-4">
-                <pre className="text-sm">
-                  <code>{codeExample}</code>
-                </pre>
-              </ScrollArea>
+              <div className="relative">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-2 top-2 z-20"
+                  onClick={handleCopy}
+                >
+                  {copied ? (
+                    <Check className="h-4 w-4 text-green-500" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </Button>
+                <ScrollArea className="h-[400px] rounded-md border p-4">
+                  <pre className="text-sm">
+                    <code>{codeExample}</code>
+                  </pre>
+                </ScrollArea>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>

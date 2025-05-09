@@ -154,7 +154,7 @@ export function ShowAllComponents() {
   return (
     <div className="container mx-auto p-8 space-y-8">
       {/* Header with Theme Switch */}
-      <div className="flex justify-between items-center">
+      {/* <div className="flex justify-between items-center">
         <TypographyH1>UI Components Showcase</TypographyH1>
         <div className="flex items-center space-x-2">
           <Sun className="h-5 w-5" />
@@ -164,7 +164,7 @@ export function ShowAllComponents() {
           />
           <Moon className="h-5 w-5" />
         </div>
-      </div>
+      </div> */}
 
       {/* Icon Categories */}
       <section className="space-y-4">
@@ -179,8 +179,12 @@ export function ShowAllComponents() {
           </TabsList>
           <TabsContent value={selectedCategory}>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-              {iconCategories[selectedCategory].map((Icon) => (
-                <IconCard key={Icon.name} Icon={Icon} name={Icon.name} />
+              {iconCategories[selectedCategory].map((Icon, index) => (
+                <IconCard 
+                  key={`${selectedCategory}-${index}`} 
+                  Icon={Icon} 
+                  name={Icon.name || Icon.displayName || `Icon ${index + 1}`} 
+                />
               ))}
             </div>
           </TabsContent>
