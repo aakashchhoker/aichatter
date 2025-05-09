@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useTheme } from 'next-themes'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Calendar } from '@/components/ui/calendar'
@@ -103,10 +104,37 @@ import {
   Zap,
   ZoomIn,
   ZoomOut,
-  LogOut
+  LogOut,
+  Sun,
+  Moon
 } from 'lucide-react'
 
+// Icon categories
+const iconCategories = {
+  navigation: [Home, Settings, Menu, ChevronDown, ChevronRight, ChevronLeft, ChevronUp, ArrowRight, ArrowLeft],
+  actions: [Plus, Trash, Edit, Share, Download, Upload, Save, Send, RefreshCw],
+  social: [Star, Heart, ThumbsUp, ThumbsDown, MessageSquare],
+  media: [Image, Video, Volume2, VolumeX, ZoomIn, ZoomOut],
+  system: [Bell, Search, Lock, Unlock, Eye, EyeOff, Wifi, WifiOff],
+  interface: [Grid, List, Maximize, Minimize, MoreHorizontal, MoreVertical],
+  files: [File, Folder, UploadCloud],
+  communication: [Mail, MessageSquare, Send],
+  status: [Check, X, AlertCircle, Info, HelpCircle],
+  user: [User, Users, LogOut],
+  other: [CalendarIcon, Clock, ExternalLink, Link, Shield, Sliders, Tag, Zap]
+}
+
 export function ShowAllComponents() {
+  const { theme, setTheme } = useTheme()
+  const [selectedCategory, setSelectedCategory] = useState('navigation')
+
+  const IconCard = ({ Icon, name }) => (
+    <Card className="flex flex-col items-center p-4 hover:shadow-lg transition-shadow">
+      <Icon className="h-8 w-8 mb-2" />
+      <TypographyP className="text-sm text-center">{name}</TypographyP>
+    </Card>
+  )
+
   // Sample data for the chart
   const chartData = [
     { name: 'Jan', value: 400 },
@@ -125,7 +153,39 @@ export function ShowAllComponents() {
 
   return (
     <div className="container mx-auto p-8 space-y-8">
-      <TypographyH1>UI Components Showcase</TypographyH1>
+      {/* Header with Theme Switch */}
+      <div className="flex justify-between items-center">
+        <TypographyH1>UI Components Showcase</TypographyH1>
+        <div className="flex items-center space-x-2">
+          <Sun className="h-5 w-5" />
+          <Switch
+            checked={theme === 'dark'}
+            onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
+          />
+          <Moon className="h-5 w-5" />
+        </div>
+      </div>
+
+      {/* Icon Categories */}
+      <section className="space-y-4">
+        <TypographyH2>Lucide Icons</TypographyH2>
+        <Tabs defaultValue="navigation" value={selectedCategory} onValueChange={setSelectedCategory}>
+          <TabsList className="mb-4">
+            {Object.keys(iconCategories).map((category) => (
+              <TabsTrigger key={category} value={category}>
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          <TabsContent value={selectedCategory}>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+              {iconCategories[selectedCategory].map((Icon) => (
+                <IconCard key={Icon.name} Icon={Icon} name={Icon.name} />
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </section>
 
       {/* Typography Section */}
       <section className="space-y-4">
