@@ -36,7 +36,7 @@ Best Practices:
 3. Include keyboard shortcuts
 4. Consider mobile gestures
 5. Keep menus concise`,
-    codeExample: `import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from '@your-ui-library/context-menu';
+    codeExample: `import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from '../components/ui/context-menu';
 
 function ExampleContextMenu() {
   return (

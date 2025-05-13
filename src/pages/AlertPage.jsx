@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentDetail } from "../components/ComponentDetail";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertTitle, AlertDescription } from "../components/ui/alert";
 
 export const AlertPage = () => {
   const alertContent = {
@@ -21,7 +21,7 @@ Best Practices:
 3. Use icons to enhance visual communication
 4. Consider color contrast for accessibility
 5. Position alerts where they're most visible`,
-    codeExample: `import { Alert, AlertTitle, AlertDescription } from '@your-ui-library/alert';
+    codeExample: `import { Alert, AlertTitle, AlertDescription } from '../components/ui/alert';
 
 function ExampleAlert() {
   return (

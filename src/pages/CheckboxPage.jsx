@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentDetail } from "../components/ComponentDetail";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "../components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
 export const CheckboxPage = () => {
@@ -23,7 +23,7 @@ Best Practices:
 3. Consider mobile touch targets
 4. Provide clear feedback
 5. Use appropriate spacing`,
-    codeExample: `import { Checkbox } from '@your-ui-library/checkbox';
+    codeExample: `import { Checkbox } from '../components/ui/checkbox';
 
 function ExampleCheckbox() {
   return (

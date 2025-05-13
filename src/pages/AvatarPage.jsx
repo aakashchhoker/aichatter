@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentDetail } from "../components/ComponentDetail";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 
 export const AvatarPage = () => {
   const avatarContent = {
@@ -22,7 +22,7 @@ Best Practices:
 3. Handle image loading states
 4. Consider accessibility
 5. Use consistent styling across your application`,
-    codeExample: `import { Avatar, AvatarImage, AvatarFallback } from '@your-ui-library/avatar';
+    codeExample: `import { Avatar, AvatarImage, AvatarFallback } from '../components/ui/avatar';
 
 function ExampleAvatar() {
   return (

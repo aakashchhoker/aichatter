@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useTheme } from 'next-themes'
+// import { useTheme } from 'next-themes' - Removed as not currently used
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Calendar } from '@/components/ui/calendar'
@@ -125,9 +125,10 @@ const iconCategories = {
 }
 
 export function ShowAllComponents() {
-  const { theme, setTheme } = useTheme()
+  // const { theme, setTheme } = useTheme() - Commented out as not currently used
   const [selectedCategory, setSelectedCategory] = useState('navigation')
 
+  // eslint-disable-next-line no-unused-vars
   const IconCard = ({ Icon, name }) => (
     <Card className="flex flex-col items-center p-4 hover:shadow-lg transition-shadow">
       <Icon className="h-8 w-8 mb-2" />
@@ -152,7 +153,7 @@ export function ShowAllComponents() {
   ]
 
   return (
-    <div className="container mx-auto p-8 space-y-8">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 py-4 md:py-8 space-y-6 md:space-y-8">
       {/* Header with Theme Switch */}
       {/* <div className="flex justify-between items-center">
         <TypographyH1>UI Components Showcase</TypographyH1>
@@ -167,18 +168,20 @@ export function ShowAllComponents() {
       </div> */}
 
       {/* Icon Categories */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Lucide Icons</TypographyH2>
         <Tabs defaultValue="navigation" value={selectedCategory} onValueChange={setSelectedCategory}>
-          <TabsList className="mb-4">
+          <div className="overflow-x-auto pb-2">
+          <TabsList className="mb-4 flex-nowrap">
             {Object.keys(iconCategories).map((category) => (
               <TabsTrigger key={category} value={category}>
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </TabsTrigger>
             ))}
           </TabsList>
+        </div>
           <TabsContent value={selectedCategory}>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
               {iconCategories[selectedCategory].map((Icon, index) => (
                 <IconCard 
                   key={`${selectedCategory}-${index}`} 
@@ -192,7 +195,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Typography Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Typography</TypographyH2>
         <TypographyP>This is a paragraph text.</TypographyP>
         <TypographyBlockquote>
@@ -201,7 +204,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Avatar Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Avatar</TypographyH2>
         <div className="flex space-x-4">
           <Avatar>
@@ -215,7 +218,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Badge Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Badge</TypographyH2>
         <div className="flex space-x-4">
           <Badge>Default</Badge>
@@ -226,7 +229,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Calendar Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Calendar</TypographyH2>
         <div className="border rounded-lg p-4">
           <Calendar />
@@ -234,47 +237,49 @@ export function ShowAllComponents() {
       </section>
 
       {/* Date Picker Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Date Picker</TypographyH2>
-        <div className="flex space-x-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <DatePicker />
           <DatePickerWithRange />
         </div>
       </section>
 
       {/* Chart Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Chart</TypographyH2>
-        <div className="border rounded-lg p-4">
-          <Chart
-            data={chartData}
-            xAxisKey="name"
-            yAxisKey="value"
-            title="Monthly Sales"
-          />
+        <div className="border rounded-lg p-2 sm:p-4 overflow-x-auto">
+          <div className="min-w-[300px]">
+            <Chart
+              data={chartData}
+              xAxisKey="name"
+              yAxisKey="value"
+              title="Monthly Sales"
+            />
+          </div>
         </div>
       </section>
 
       {/* Resizable Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Resizable Panels</TypographyH2>
-        <div className="h-[200px] border rounded-lg">
+        <div className="h-[200px] border rounded-lg overflow-hidden">
           <ResizablePanelGroup direction="horizontal">
             <ResizablePanel defaultSize={25}>
-              <div className="p-4">Panel 1</div>
+              <div className="p-2 sm:p-4">Panel 1</div>
             </ResizablePanel>
             <ResizableHandle withHandle />
             <ResizablePanel defaultSize={75}>
-              <div className="p-4">Panel 2</div>
+              <div className="p-2 sm:p-4">Panel 2</div>
             </ResizablePanel>
           </ResizablePanelGroup>
         </div>
       </section>
 
       {/* Table Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Table</TypographyH2>
-        <div className="border rounded-lg">
+        <div className="border rounded-lg overflow-x-auto">
           <Table>
             <TableCaption>A list of users</TableCaption>
             <TableHeader>
@@ -298,9 +303,9 @@ export function ShowAllComponents() {
       </section>
 
       {/* Button Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Button</TypographyH2>
-        <div className="flex space-x-4">
+        <div className="flex flex-wrap gap-2 sm:gap-4">
           <Button>
             <Plus className="mr-2 h-4 w-4" />
             Add New
@@ -329,14 +334,14 @@ export function ShowAllComponents() {
       </section>
 
       {/* Input Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Input</TypographyH2>
-        <div className="flex space-x-4">
-          <div className="relative">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="relative flex-1">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input placeholder="Search..." className="pl-8" />
           </div>
-          <div className="relative">
+          <div className="relative flex-1">
             <Lock className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input type="password" placeholder="Password" className="pl-8" />
           </div>
@@ -344,19 +349,19 @@ export function ShowAllComponents() {
       </section>
 
       {/* Label Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Label</TypographyH2>
-        <div className="flex space-x-4">
+        <div className="flex flex-wrap gap-4">
           <Label htmlFor="name">Name</Label>
           <Label htmlFor="email">Email</Label>
         </div>
       </section>
 
       {/* Select Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Select</TypographyH2>
         <Select>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue placeholder="Select an option" />
           </SelectTrigger>
           <SelectContent>
@@ -368,7 +373,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Card Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Card</TypographyH2>
         <Card>
           <CardHeader>
@@ -395,10 +400,10 @@ export function ShowAllComponents() {
       </section>
 
       {/* Tabs Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Tabs</TypographyH2>
         <Tabs defaultValue="tab1">
-          <TabsList>
+          <TabsList className="w-full sm:w-auto">
             <TabsTrigger value="tab1">Tab 1</TabsTrigger>
             <TabsTrigger value="tab2">Tab 2</TabsTrigger>
           </TabsList>
@@ -408,7 +413,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Sheet Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Sheet</TypographyH2>
         <Sheet>
           <SheetTrigger asChild>
@@ -425,7 +430,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Separator Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Separator</TypographyH2>
         <div className="space-y-4">
           <p>Above separator</p>
@@ -435,7 +440,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Skeleton Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Skeleton</TypographyH2>
         <div className="space-y-4">
           <Skeleton className="h-4 w-[250px]" />
@@ -444,26 +449,28 @@ export function ShowAllComponents() {
       </section>
 
       {/* Command Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Command</TypographyH2>
-        <Command>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Suggestions">
-              <CommandItem>Calendar</CommandItem>
-              <CommandItem>Search</CommandItem>
-              <CommandItem>Settings</CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </Command>
+        <div className="w-full max-w-[450px]">
+          <Command>
+            <CommandInput placeholder="Type a command or search..." />
+            <CommandList>
+              <CommandEmpty>No results found.</CommandEmpty>
+              <CommandGroup heading="Suggestions">
+                <CommandItem>Calendar</CommandItem>
+                <CommandItem>Search</CommandItem>
+                <CommandItem>Settings</CommandItem>
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </div>
       </section>
 
       {/* Context Menu Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Context Menu</TypographyH2>
         <ContextMenu>
-          <ContextMenuTrigger className="flex h-[150px] w-full items-center justify-center rounded-md border border-dashed text-sm">
+          <ContextMenuTrigger className="flex h-[100px] sm:h-[150px] w-full items-center justify-center rounded-md border border-dashed text-sm">
             Right click here
           </ContextMenuTrigger>
           <ContextMenuContent>
@@ -477,13 +484,13 @@ export function ShowAllComponents() {
       </section>
 
       {/* Hover Card Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Hover Card</TypographyH2>
         <HoverCard>
           <HoverCardTrigger asChild>
             <Button variant="link">Hover me</Button>
           </HoverCardTrigger>
-          <HoverCardContent className="w-80">
+          <HoverCardContent className="w-[calc(100vw-32px)] sm:w-80">
             <div className="space-y-2">
               <h4 className="text-sm font-semibold">Hover Card Title</h4>
               <p className="text-sm">Hover Card Content</p>
@@ -493,56 +500,60 @@ export function ShowAllComponents() {
       </section>
 
       {/* Menubar Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Menubar</TypographyH2>
-        <Menubar>
-          <MenubarMenu>
-            <MenubarTrigger>File</MenubarTrigger>
-            <MenubarContent>
-              <MenubarItem>New Tab</MenubarItem>
-              <MenubarItem>New Window</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem>Share</MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-        </Menubar>
+        <div className="overflow-x-auto">
+          <Menubar>
+            <MenubarMenu>
+              <MenubarTrigger>File</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>New Tab</MenubarItem>
+                <MenubarItem>New Window</MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>Share</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </div>
       </section>
 
       {/* Navigation Menu Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4 p-4 md:p-6">
         <TypographyH2>Navigation Menu</TypographyH2>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="flex items-center">
-                <Home className="mr-2 h-4 w-4" />
-                Getting Started
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 w-[400px]">
-                  <li>
-                    <NavigationMenuLink className="flex items-center">
-                      <File className="mr-2 h-4 w-4" />
-                      Documentation
-                    </NavigationMenuLink>
-                  </li>
-                  <li>
-                    <NavigationMenuLink className="flex items-center">
-                      <Settings className="mr-2 h-4 w-4" />
-                      Components
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <div className="w-full overflow-x-auto">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="flex items-center">
+                  <Home className="mr-2 h-4 w-4" />
+                  Getting Started
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 w-full sm:w-[400px] md:w-[500px]">
+                    <li>
+                      <NavigationMenuLink className="flex items-center">
+                        <File className="mr-2 h-4 w-4" />
+                        Documentation
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink className="flex items-center">
+                        <Settings className="mr-2 h-4 w-4" />
+                        Components
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
       </section>
 
       {/* Scroll Area Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4 p-4 md:p-6">
         <TypographyH2>Scroll Area</TypographyH2>
-        <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+        <ScrollArea className="h-[200px] w-full max-w-[350px] md:max-w-[400px] rounded-md border p-4">
           <div className="space-y-4">
             <h4 className="text-sm font-medium">Scroll Area Content</h4>
             {Array.from({ length: 20 }).map((_, i) => (
@@ -553,7 +564,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Tooltip Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Tooltip</TypographyH2>
         <TooltipProvider>
           <Tooltip>
@@ -568,7 +579,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Checkbox Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Checkbox</TypographyH2>
         <div className="flex items-center space-x-2">
           <Checkbox id="terms" />
@@ -577,7 +588,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Radio Group Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Radio Group</TypographyH2>
         <RadioGroup defaultValue="option1">
           <div className="flex items-center space-x-2">
@@ -592,13 +603,13 @@ export function ShowAllComponents() {
       </section>
 
       {/* Slider Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Slider</TypographyH2>
         <Slider defaultValue={[50]} max={100} step={1} />
       </section>
 
       {/* Switch Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Switch</TypographyH2>
         <div className="flex items-center space-x-2">
           <Switch id="airplane-mode" />
@@ -607,19 +618,19 @@ export function ShowAllComponents() {
       </section>
 
       {/* Textarea Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Textarea</TypographyH2>
         <Textarea placeholder="Type your message here." />
       </section>
 
       {/* Toggle Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Toggle</TypographyH2>
-        <div className="flex space-x-4">
+        <div className="flex flex-wrap gap-4">
           <ToggleGroup type="single">
             <ToggleGroupItem value="toggle">Toggle</ToggleGroupItem>
           </ToggleGroup>
-          <ToggleGroup type="single">
+          <ToggleGroup type="single" className="flex flex-wrap">
             <ToggleGroupItem value="a">A</ToggleGroupItem>
             <ToggleGroupItem value="b">B</ToggleGroupItem>
             <ToggleGroupItem value="c">C</ToggleGroupItem>
@@ -628,7 +639,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Alert Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Alert</TypographyH2>
         <Alert>
           <Info className="h-4 w-4" />
@@ -643,7 +654,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Alert Dialog Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Alert Dialog</TypographyH2>
         <AlertDialog>
           <AlertDialogTrigger asChild>
@@ -665,7 +676,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Dialog Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Dialog</TypographyH2>
         <Dialog>
           <DialogTrigger asChild>
@@ -685,7 +696,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Dropdown Menu Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Dropdown Menu</TypographyH2>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -713,7 +724,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Collapsible Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Collapsible</TypographyH2>
         <Collapsible>
           <CollapsibleTrigger asChild>
@@ -726,9 +737,9 @@ export function ShowAllComponents() {
       </section>
 
       {/* Aspect Ratio Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Aspect Ratio</TypographyH2>
-        <div className="w-[300px]">
+        <div className="w-full max-w-[300px]">
           <AspectRatio ratio={16 / 9}>
             <div className="bg-gray-200 w-full h-full flex items-center justify-center">
               Aspect Ratio 16:9
@@ -738,7 +749,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Accordion Section */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Accordion</TypographyH2>
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
@@ -789,7 +800,7 @@ export function ShowAllComponents() {
       </section>
 
       {/* Toast Demo Button */}
-      <section className="space-y-4">
+      <section className="space-y-3 md:space-y-4">
         <TypographyH2>Toast</TypographyH2>
         <button
           onClick={() => toast('This is a toast notification')}

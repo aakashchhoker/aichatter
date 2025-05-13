@@ -29,7 +29,7 @@ Best Practices:
 3. Ensure proper spacing
 4. Make all items clickable except current page
 5. Consider mobile responsiveness`,
-    codeExample: `import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@your-ui-library/breadcrumb';
+    codeExample: `import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '../components/ui/breadcrumb';
 
 function ExampleBreadcrumb() {
   return (

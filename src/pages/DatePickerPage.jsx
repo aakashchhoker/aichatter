@@ -6,6 +6,7 @@ import { Button } from "../components/ui/button";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
 import { cn } from "../lib/utils";
+import { DatePicker } from '../components/ui/date-picker';
 
 export const DatePickerPage = () => {
   const [date, setDate] = React.useState(null);
@@ -29,7 +30,7 @@ Best Practices:
 3. Support keyboard navigation
 4. Consider localization
 5. Handle edge cases`,
-    codeExample: `import { DatePicker } from '@your-ui-library/date-picker';
+    codeExample: `import { DatePicker } from '../components/ui/date-picker';
 
 function ExampleDatePicker() {
   return (

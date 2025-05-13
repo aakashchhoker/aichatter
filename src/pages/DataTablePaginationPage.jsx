@@ -39,7 +39,7 @@ Best Practices:
 3. Provide page size options
 4. Consider mobile responsiveness
 5. Handle edge cases (first/last page)`,
-    codeExample: `import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@your-ui-library/pagination';
+    codeExample: `import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '../components/ui/pagination';
 
 function ExamplePagination() {
   return (

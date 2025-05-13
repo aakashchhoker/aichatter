@@ -22,7 +22,7 @@ Best Practices:
 3. Provide clear feedback on interaction
 4. Consider mobile touch targets
 5. Use icons to enhance visual communication`,
-    codeExample: `import { Button } from '@your-ui-library/button';
+    codeExample: `import { Button } from '../components/ui/button';
 
 function ExampleButton() {
   return (

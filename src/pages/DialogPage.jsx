@@ -31,7 +31,7 @@ Best Practices:
 3. Provide clear actions
 4. Handle keyboard navigation
 5. Consider mobile experience`,
-    codeExample: `import { Dialog } from '@your-ui-library/dialog';
+    codeExample: `import { Dialog } from '../components/ui/dialog';
 
 function ExampleDialog() {
   return (

@@ -34,7 +34,7 @@ Best Practices:
 3. Include keyboard shortcuts
 4. Provide helpful empty states
 5. Consider mobile usability`,
-    codeExample: `import { Command, CommandInput, CommandList, CommandItem } from '@your-ui-library/command';
+    codeExample: `import { Command, CommandInput, CommandList, CommandItem } from '../components/ui/command';
 
 function ExampleCommand() {
   return (

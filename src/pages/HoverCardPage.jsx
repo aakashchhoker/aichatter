@@ -28,7 +28,7 @@ Best Practices:
 3. Provide clear triggers
 4. Handle keyboard navigation
 5. Consider mobile experience`,
-    codeExample: `import { HoverCard } from '@your-ui-library/hover-card';
+    codeExample: `import { HoverCard } from '../components/ui/hover-card';
 
 function ExampleHoverCard() {
   return (

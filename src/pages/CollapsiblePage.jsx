@@ -27,7 +27,7 @@ Best Practices:
 3. Consider mobile responsiveness
 4. Maintain consistent spacing
 5. Use appropriate icons for expand/collapse states`,
-    codeExample: `import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@your-ui-library/collapsible';
+    codeExample: `import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '../components/ui/collapsible';
 
 function ExampleCollapsible() {
   const [isOpen, setIsOpen] = React.useState(false);

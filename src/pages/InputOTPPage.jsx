@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentDetail } from "../components/ComponentDetail";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "../components/ui/input-otp";
 
 export const InputOTPPage = () => {
   const inputOTPContent = { 
@@ -22,7 +22,7 @@ Best Practices:
 3. Handle paste events
 4. Consider mobile usability
 5. Include error handling`,
-    codeExample: `import { InputOTP, InputOTPGroup, InputOTPSlot } from '@your-ui-library/input-otp';
+    codeExample: `import { InputOTP, InputOTPGroup, InputOTPSlot } from '../components/ui/input-otp';
 
 function ExampleInputOTP() {
   return (

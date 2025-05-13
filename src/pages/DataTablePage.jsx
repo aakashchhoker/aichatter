@@ -30,7 +30,7 @@ Best Practices:
 3. Include pagination for large datasets
 4. Consider mobile responsiveness
 5. Provide search/filter functionality`,
-    codeExample: `import { Table, TableHeader, TableBody, TableRow, TableCell } from '@your-ui-library/table';
+    codeExample: `import { Table, TableHeader, TableBody, TableRow, TableCell } from '../components/ui/table';
 
 function ExampleDataTable() {
   return (

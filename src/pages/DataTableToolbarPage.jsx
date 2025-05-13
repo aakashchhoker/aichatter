@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentDetail } from "../components/ComponentDetail";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -30,8 +30,8 @@ Best Practices:
 3. Add export options
 4. Consider mobile layout
 5. Keep toolbar organized`,
-    codeExample: `import { Input } from '@your-ui-library/input';
-import { Button } from '@your-ui-library/button';
+    codeExample: `import { Input } from '../components/ui/input';
+import { Button } from '../components/ui/button';
 
 function ExampleToolbar() {
   return (

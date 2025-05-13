@@ -62,7 +62,7 @@ Best Practices:
 3. Group related items
 4. Consider mobile usability
 5. Handle loading states appropriately`,
-    codeExample: `import { Command, CommandInput, CommandList, CommandItem } from '@your-ui-library/command';
+    codeExample: `import { Command, CommandInput, CommandList, CommandItem } from '../components/ui/command';
 
 function ExampleCombobox() {
   const [value, setValue] = React.useState("");

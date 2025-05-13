@@ -23,7 +23,7 @@ Best Practices:
 3. Include helpful placeholder text
 4. Handle validation states
 5. Consider mobile usability`,
-    codeExample: `import { Input } from '@your-ui-library/input';
+    codeExample: `import { Input } from '@/components/ui/input';
 
 function ExampleInput() {
   return (

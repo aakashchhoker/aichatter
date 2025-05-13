@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentDetail } from "../components/ComponentDetail";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { AspectRatio } from "../components/ui/aspect-ratio";
 
 export const AspectRatioPage = () => {
   const aspectRatioContent = {
@@ -22,7 +22,7 @@ Best Practices:
 3. Handle loading states
 4. Provide fallback content
 5. Test across different screen sizes`,
-    codeExample: `import { AspectRatio } from '@your-ui-library/aspect-ratio';
+    codeExample: `import { AspectRatio } from '../components/ui/aspect-ratio';
 
 function ExampleAspectRatio() {
   return (
