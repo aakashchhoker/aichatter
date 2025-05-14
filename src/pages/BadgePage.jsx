@@ -22,7 +22,7 @@ Best Practices:
 3. Consider color contrast for accessibility
 4. Use consistent styling across your application
 5. Position badges appropriately relative to their content`,
-    codeExample: `import { Badge } from '../components/ui/badge';
+    codeExample: `import { Badge } from '@/components/ui/badge';
 
 function ExampleBadge() {
   return (

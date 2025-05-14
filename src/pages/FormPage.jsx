@@ -62,7 +62,7 @@ Best Practices:
 3. Handle form submission
 4. Consider accessibility
 5. Implement proper error states`,
-    codeExample: `import { Form } from '../components/ui/form';
+    codeExample: `import { Form } from '@/components/ui/form';
 
 function ExampleForm() {
   return (

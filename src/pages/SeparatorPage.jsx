@@ -22,7 +22,7 @@ Best Practices:
 3. Consider content hierarchy
 4. Use appropriate orientation
 5. Keep styling subtle`,
-    codeExample: `import { Separator } from '@your-ui-library/separator';
+    codeExample: `import { Separator } from '@/components/ui/separator';
 
 function ExampleSeparator() {
   return (

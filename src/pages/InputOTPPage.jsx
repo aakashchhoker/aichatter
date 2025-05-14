@@ -22,7 +22,7 @@ Best Practices:
 3. Handle paste events
 4. Consider mobile usability
 5. Include error handling`,
-    codeExample: `import { InputOTP, InputOTPGroup, InputOTPSlot } from '../components/ui/input-otp';
+    codeExample: `import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 
 function ExampleInputOTP() {
   return (

@@ -27,7 +27,7 @@ Best Practices:
 3. Ensure proper positioning
 4. Consider mobile interactions
 5. Maintain consistent styling`,
-    codeExample: `import { Popover, PopoverTrigger, PopoverContent } from '@your-ui-library/popover';
+    codeExample: `import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
 
 function ExamplePopover() {
   return (

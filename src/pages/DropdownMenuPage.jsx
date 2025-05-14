@@ -34,7 +34,7 @@ Best Practices:
 3. Provide clear labels
 4. Handle keyboard navigation
 5. Consider mobile experience`,
-    codeExample: `import { DropdownMenu } from '../components/ui/dropdown-menu';
+    codeExample: `import { DropdownMenu } from '@/components/ui/dropdown-menu';
 
 function ExampleDropdownMenu() {
   return (

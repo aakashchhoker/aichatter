@@ -92,7 +92,7 @@ Best Practices:
 3. Consider mobile navigation
 4. Maintain consistent styling
 5. Handle focus states properly`,
-    codeExample: `import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger } from '@your-ui-library/navigation-menu';
+    codeExample: `import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger } from '@/components/ui/navigation-menu';
 
 function ExampleNavigationMenu() {
   return (

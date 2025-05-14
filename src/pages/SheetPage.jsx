@@ -23,7 +23,7 @@ Best Practices:
 3. Provide clear navigation
 4. Consider mobile interactions
 5. Use appropriate positioning`,
-    codeExample: `import { Sheet, SheetContent, SheetTrigger } from '@your-ui-library/sheet';
+    codeExample: `import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 function ExampleSheet() {
   return (

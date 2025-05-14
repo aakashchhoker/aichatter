@@ -28,7 +28,7 @@ Best Practices:
 3. Group related options
 4. Consider mobile interactions
 5. Maintain consistent styling`,
-    codeExample: `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@your-ui-library/select';
+    codeExample: `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 function ExampleSelect() {
   return (

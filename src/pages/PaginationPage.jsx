@@ -37,7 +37,7 @@ Best Practices:
   PaginationLink,
   PaginationNext,
   PaginationPrevious 
-} from '@your-ui-library/pagination';
+} from '@/components/ui/pagination';
 
 function ExamplePagination() {
   return (

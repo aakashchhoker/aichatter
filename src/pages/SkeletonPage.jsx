@@ -22,7 +22,7 @@ Best Practices:
 3. Keep animations subtle
 4. Consider loading states
 5. Maintain consistent spacing`,
-    codeExample: `import { Skeleton } from '@your-ui-library/skeleton';
+    codeExample: `import { Skeleton } from '@/components/ui/skeleton';
 
 function ExampleSkeleton() {
   return (

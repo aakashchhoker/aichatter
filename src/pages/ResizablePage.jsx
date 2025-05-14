@@ -22,7 +22,7 @@ Best Practices:
 3. Consider mobile interactions
 4. Maintain aspect ratios when needed
 5. Use for flexible layouts`,
-    codeExample: `import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@your-ui-library/resizable';
+    codeExample: `import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable';
 
 function ExampleResizable() {
   return (

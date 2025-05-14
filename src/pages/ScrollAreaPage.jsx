@@ -22,7 +22,7 @@ Best Practices:
 3. Consider mobile interactions
 4. Provide visual feedback
 5. Ensure accessibility`,
-    codeExample: `import { ScrollArea } from '@your-ui-library/scroll-area';
+    codeExample: `import { ScrollArea } from '@/components/ui/scroll-area';
 
 function ExampleScrollArea() {
   return (

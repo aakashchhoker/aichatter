@@ -32,7 +32,7 @@ Best Practices:
 3. Provide clear actions
 4. Handle keyboard navigation
 5. Consider mobile experience`,
-    codeExample: `import { Drawer } from '../components/ui/drawer';
+    codeExample: `import { Drawer } from '@/components/ui/drawer';
 
 function ExampleDrawer() {
   return (

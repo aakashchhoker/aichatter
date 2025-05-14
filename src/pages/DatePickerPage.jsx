@@ -30,7 +30,7 @@ Best Practices:
 3. Support keyboard navigation
 4. Consider localization
 5. Handle edge cases`,
-    codeExample: `import { DatePicker } from '../components/ui/date-picker';
+    codeExample: `import { DatePicker } from '@/components/ui/date-picker';
 
 function ExampleDatePicker() {
   return (

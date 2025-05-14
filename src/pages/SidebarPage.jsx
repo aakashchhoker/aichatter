@@ -22,7 +22,7 @@ Best Practices:
 3. Consider mobile responsiveness
 4. Maintain consistent spacing
 5. Provide visual feedback`,
-    codeExample: `import { Sidebar } from '@your-ui-library/sidebar';
+    codeExample: `import { Sidebar } from '@/components/ui/sidebar';
 
 function ExampleSidebar() {
   return (

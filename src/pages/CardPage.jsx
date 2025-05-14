@@ -30,7 +30,7 @@ Best Practices:
 3. Maintain visual hierarchy
 4. Consider mobile responsiveness
 5. Use consistent styling across cards`,
-    codeExample: `import { Card, CardHeader, CardContent, CardFooter } from '../components/ui/card';
+    codeExample: `import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 
 function ExampleCard() {
   return (

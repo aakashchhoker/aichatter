@@ -37,7 +37,7 @@ Best Practices:
   TableHead,
   TableHeader,
   TableRow,
-} from "../components/ui/table";
+} from "@/components/ui/table";
 
 function ExampleTable() {
   return (

@@ -30,8 +30,8 @@ Best Practices:
 3. Add export options
 4. Consider mobile layout
 5. Keep toolbar organized`,
-    codeExample: `import { Input } from '../components/ui/input';
-import { Button } from '../components/ui/button';
+    codeExample: `import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 function ExampleToolbar() {
   return (

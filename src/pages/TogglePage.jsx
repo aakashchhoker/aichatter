@@ -23,7 +23,7 @@ Best Practices:
 3. Include helpful labels
 4. Use appropriate icons
 5. Handle state changes properly`,
-    codeExample: `import { Toggle } from "../components/ui/toggle";
+    codeExample: `import { Toggle } from "@/components/ui/toggle";
 
 function ExampleToggle() {
   return (

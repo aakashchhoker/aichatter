@@ -24,7 +24,7 @@ Best Practices:
 3. Handle timezone differences
 4. Consider localization
 5. Provide clear feedback for selected dates`,
-    codeExample: `import { Calendar } from '../components/ui/calendar';
+    codeExample: `import { Calendar } from '@/components/ui/calendar';
 
 function ExampleCalendar() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());

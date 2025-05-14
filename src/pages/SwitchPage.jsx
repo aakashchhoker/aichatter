@@ -23,7 +23,7 @@ Best Practices:
 3. Consider touch targets
 4. Support keyboard input
 5. Use appropriate sizing`,
-    codeExample: `import { Switch } from '@your-ui-library/switch';
+    codeExample: `import { Switch } from '@/components/ui/switch';
 
 function ExampleSwitch() {
   return (

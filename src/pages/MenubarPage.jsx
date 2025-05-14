@@ -30,7 +30,7 @@ Best Practices:
 3. Include keyboard shortcuts
 4. Consider mobile alternatives
 5. Maintain consistent styling`,
-    codeExample: `import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from '@your-ui-library/menubar';
+    codeExample: `import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from '@/components/ui/menubar';
 
 function ExampleMenubar() {
   return (

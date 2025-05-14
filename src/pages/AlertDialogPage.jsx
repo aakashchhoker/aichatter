@@ -33,7 +33,7 @@ Best Practices:
 3. Provide clear action buttons
 4. Consider mobile responsiveness
 5. Use sparingly to avoid disrupting user flow`,
-    codeExample: `import { AlertDialog, AlertDialogAction, AlertDialogCancel } from '../components/ui/alert-dialog';
+    codeExample: `import { AlertDialog, AlertDialogAction, AlertDialogCancel } from '@/components/ui/alert-dialog';
 
 function ExampleAlertDialog() {
   return (

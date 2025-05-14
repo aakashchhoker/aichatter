@@ -24,7 +24,7 @@ Best Practices:
 3. Indicate required fields
 4. Consider mobile layout
 5. Handle error states appropriately`,
-    codeExample: `import { Label } from '@your-ui-library/label';
+    codeExample: `import { Label } from '@/components/ui/label';
 
 function ExampleLabel() {
   return (

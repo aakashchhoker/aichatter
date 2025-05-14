@@ -13,6 +13,7 @@ import {
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import CodeEditor from "../CodeEditor";
 import Frame from 'react-frame-component';
+import { Loader2 } from "lucide-react";
 
 export function ComponentPractice({ 
   name,
@@ -25,75 +26,37 @@ export function ComponentPractice({
   const [liveCode, setLiveCode] = useState(initialLiveCode);
   const [error, setError] = useState(null);
   const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const iframeRef = useRef(null);
   const { toast } = useToast();
-
-  const handleCodeChange = (newCode) => {
-    const transformed = transformImports(newCode);
-    setLiveCode(transformed);
-  };
-
-  const renderCode = () => {
-    if (!iframeLoaded || !iframeRef.current) return;
-
-    try {
-      setError(null);
-      const iframe = iframeRef.current;
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      const root = iframeDoc.getElementById('root');
-      
-      if (!root) return;
-
-      // Clear previous content
-      root.innerHTML = '';
-
-      // Create a script element
-      const script = iframeDoc.createElement('script');
-      script.type = 'module';
-      
-      // Wrap the code in a module
-      const wrappedCode = `
-        import React from 'react';
-        import ReactDOM from 'react-dom';
-        ${Object.entries(scope || {}).map(([key, value]) => 
-          `const ${key} = ${JSON.stringify(value)};`
-        ).join('\n')}
-        
-        const Component = () => {
-          ${liveCode}
-        };
-        
-        ReactDOM.render(React.createElement(Component), document.getElementById('root'));
-      `;
-      
-      script.textContent = wrappedCode;
-      iframeDoc.body.appendChild(script);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
+  
+  // Update liveCode when initialLiveCode changes (e.g., when switching components)
   useEffect(() => {
-    if (iframeLoaded) {
-      renderCode();
-    }
-  }, [liveCode, scope, iframeLoaded]);
+    setLiveCode(initialLiveCode);
+  }, [initialLiveCode]);
+
 
   const PreviewContent = () => {
     return (
       <Frame
         ref={iframeRef}
         style={{ width: '100%', height: '100%', border: 'none' }}
-        onLoad={() => setIframeLoaded(true)}
+        onLoad={() => {
+          setIframeLoaded(true);
+        }}
         initialContent={`
           <!DOCTYPE html>
           <html>
             <head>
-              <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-              <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+              <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+              <script src="https://unpkg.com/react-dom@18/umd/react-dom-client.js" crossorigin></script>
               <style>
-                body { margin: 0; padding: 0; }
-                #root { height: 100vh; }
+                body { margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+                #root { min-height: 100vh; display: flex; }
+                .error-message { color: #ef4444; padding: 1rem; border: 1px solid #ef4444; border-radius: 0.5rem; margin: 1rem; background: rgba(239, 68, 68, 0.1); font-family: monospace; white-space: pre-wrap; }
               </style>
             </head>
             <body>
@@ -104,7 +67,7 @@ export function ComponentPractice({
       >
         <div className="h-full">
           {error ? (
-            <div className="text-red-500 p-4">{error}</div>
+            <div className="error-message">{error}</div>
           ) : (
             <div className="h-full" id="root"></div>
           )}
@@ -158,10 +121,10 @@ export function ComponentPractice({
                 </Button>
               </div>
               <CodeEditor
-                initialCode={initialLiveCode}
+                initialCode={liveCode}
                 language="jsx"
-                onCodeChange={handleCodeChange}
-                filePath={getActiveFilePath(name)}
+                filePath={getActiveFilePath ? getActiveFilePath(name) : undefined}
+                className="h-full min-h-[300px] border rounded-md"
               />
             </div>
           </ResizablePanel>
@@ -179,9 +142,9 @@ export function ComponentPractice({
                   </div>
                   <div className="flex-1 flex items-center justify-center">
                     <div className="bg-white dark:bg-zinc-700 rounded-md px-3 py-1 text-sm text-gray-500 dark:text-gray-300 flex items-center gap-2">
-                      <RefreshCw className="h-3 w-3" />
                       <span>localhost:3000</span>
                     </div>
+                    
                   </div>
                 </div>
                 {/* Browser Content */}

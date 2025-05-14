@@ -22,7 +22,7 @@ Best Practices:
 3. Handle loading states
 4. Provide fallback content
 5. Test across different screen sizes`,
-    codeExample: `import { AspectRatio } from '../components/ui/aspect-ratio';
+    codeExample: `import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 function ExampleAspectRatio() {
   return (

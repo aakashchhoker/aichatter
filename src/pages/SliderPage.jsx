@@ -22,7 +22,7 @@ Best Practices:
 3. Consider step sizes
 4. Show current value
 5. Support keyboard input`,
-    codeExample: `import { Slider } from '@your-ui-library/slider';
+    codeExample: `import { Slider } from '@/components/ui/slider';
 
 function ExampleSlider() {
   return (

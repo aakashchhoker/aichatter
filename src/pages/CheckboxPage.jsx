@@ -23,7 +23,7 @@ Best Practices:
 3. Consider mobile touch targets
 4. Provide clear feedback
 5. Use appropriate spacing`,
-    codeExample: `import { Checkbox } from '../components/ui/checkbox';
+    codeExample: `import { Checkbox } from '@/components/ui/checkbox';
 
 function ExampleCheckbox() {
   return (

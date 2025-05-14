@@ -22,7 +22,7 @@ Best Practices:
 3. Handle image loading states
 4. Consider accessibility
 5. Use consistent styling across your application`,
-    codeExample: `import { Avatar, AvatarImage, AvatarFallback } from '../components/ui/avatar';
+    codeExample: `import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 function ExampleAvatar() {
   return (

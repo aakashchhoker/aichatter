@@ -23,7 +23,7 @@ Best Practices:
 3. Group related options
 4. Consider mobile interactions
 5. Maintain consistent spacing`,
-    codeExample: `import { RadioGroup, RadioGroupItem } from '@your-ui-library/radio-group';
+    codeExample: `import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 function ExampleRadioGroup() {
   return (
