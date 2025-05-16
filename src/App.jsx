@@ -54,6 +54,7 @@ import { TogglePage } from "./pages/TogglePage";
 import { ToggleGroupPage } from "./pages/ToggleGroupPage";
 import { TooltipPage } from "./pages/TooltipPage";
 import { TypographyPage } from "./pages/TypographyPage";
+import IconsPage from "./pages/IconsPage";
 
 function App() {
   return (
@@ -114,6 +115,7 @@ function App() {
             <Route path="/tooltip" element={<TooltipPage />} />
             <Route path="/typography" element={<TypographyPage />} />
 
+            <Route path="/icons" element={<IconsPage />} />
             {/* Add more routes for other components */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
