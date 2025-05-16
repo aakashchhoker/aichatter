@@ -206,7 +206,7 @@ export function Layout({ children }) {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 w-full p-3 md:p-6 min-h-[calc(100vh-5rem)] md:ml-64">
+        <div className="flex-1 w-full p-0 md:p-0 min-h-[calc(100vh-5rem)] md:ml-64">
           {children}
         </div>
       </div>

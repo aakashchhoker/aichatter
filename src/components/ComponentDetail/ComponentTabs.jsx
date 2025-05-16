@@ -23,7 +23,7 @@ export function ComponentTabs({
       <TabsList className="w-full flex justify-start overflow-x-auto">
         <TabsTrigger value="preview" className="text-xs md:text-sm">Preview</TabsTrigger>
         <TabsTrigger value="code" className="text-xs md:text-sm">Code</TabsTrigger>
-        <TabsTrigger value="practice" className="text-xs md:text-sm">Practice</TabsTrigger>
+        {/* <TabsTrigger value="practice" className="text-xs md:text-sm">Practice</TabsTrigger> */}
         <TabsTrigger value="usage" className="text-xs md:text-sm">Usage</TabsTrigger>
         {props.length > 0 && <TabsTrigger value="props" className="text-xs md:text-sm">Props</TabsTrigger>}
         <TabsTrigger value="shadcn" className="text-xs md:text-sm">Shadcn UI</TabsTrigger>
@@ -34,9 +34,14 @@ export function ComponentTabs({
       </TabsContent>
 
       <TabsContent value="code">
-        <ComponentCode codeExample={codeExample} />
+        <ComponentCode
+          codeExample={codeExample}
+          name={name}
+          getActiveFilePath={getActiveFilePath}
+        />
       </TabsContent>
 
+      {/*
       <TabsContent value="practice">
         <ComponentPractice
           name={name}
@@ -46,6 +51,7 @@ export function ComponentTabs({
           transformImports={transformImports}
         />
       </TabsContent>
+      */}
 
       <TabsContent value="usage">
         <ComponentUsage usage={usage} />
