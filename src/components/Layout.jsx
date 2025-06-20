@@ -14,7 +14,12 @@ import {
 } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import logoImage from "../assets/logo.png";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const components = [
   { name: "Accordion", path: "/accordion" },
@@ -78,6 +83,7 @@ export function Layout({ children }) {
     components.find((comp) => comp.path === location.pathname)?.name || "Button"
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Close mobile menu when navigating to a new page
   useEffect(() => {
@@ -101,12 +107,12 @@ export function Layout({ children }) {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col">
+    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col h-screen">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-30">
         <div className="h-full flex items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-2">
-            <Link to="/">
+            <Link to="/aichatter">
               <Avatar className="h-10 w-10 md:h-12 md:w-12 rounded-md cursor-pointer hover:opacity-80 transition-opacity">
                 <AvatarImage src={logoImage} alt="UI/Ux Explainer Logo" />
                 <AvatarFallback className="rounded-md">UI</AvatarFallback>
@@ -114,6 +120,20 @@ export function Layout({ children }) {
             </Link>
           </div>
           <div className="flex items-center space-x-2 md:space-x-4">
+            {/* Sidebar Toggle Button (Desktop) */}
+            {/* <Button
+              variant="ghost"
+              size="icon"
+              className="hidden md:inline-flex h-8 w-8 md:h-10 md:w-10"
+              aria-label={isSidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
+              onClick={() => setIsSidebarOpen((v) => !v)}
+            >
+              {isSidebarOpen ? (
+                <ChevronLeft className="h-5 w-5" />
+              ) : (
+                <ChevronRight className="h-5 w-5" />
+              )}
+            </Button> */}
             <Button
               variant="ghost"
               size="icon"
@@ -142,73 +162,80 @@ export function Layout({ children }) {
         </div>
       </header>
 
-      {/* Main Layout: Sidebar + Content */}
+      {/* Main Layout: Sidebar + Content (sidebar hidden only on /aichatter) */}
       <div className="flex flex-1 pt-16">
-        {/* Desktop Sidebar */}
-        <div className="hidden md:block fixed top-16 left-0 w-64 h-[calc(100vh-4rem)] bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 z-20 overflow-y-auto">
-          <div className="p-4 h-full flex flex-col">
-            <h2 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">
-              List
-            </h2>
-            <ScrollArea className="flex-1">
-              <nav className="space-y-1 pr-4">
-                {/* Accordion for Icons menu with categories */}
-                <Accordion type="single" collapsible className="mb-1" defaultValue={location.pathname.startsWith("/icons") ? "icons" : undefined}>
-                  <AccordionItem value="icons">
-                    <AccordionTrigger
-                      className={`w-full flex items-center justify-between px-4 py-2 rounded-md text-sm focus:outline-none ${
-                        location.pathname.startsWith("/icons")
+        {/* Desktop Sidebar - hidden on /aichatter */}
+        {location.pathname !== "/aichatter" && (
+          <div
+            className={`hidden md:block fixed top-16 left-0 h-[calc(100vh-4rem)] bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 z-20 overflow-y-auto transition-all duration-300 ${isSidebarOpen ? "w-64" : "w-16"}`}
+          >
+            <div className={`p-4 h-full flex flex-col ${isSidebarOpen ? "" : "items-center p-2"}`}>
+              {isSidebarOpen && (
+                <h2 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                  List
+                </h2>
+              )}
+              <ScrollArea className="flex-1">
+                <nav className={`space-y-1 pr-4 ${isSidebarOpen ? "" : "flex flex-col items-center"}`}>
+                  {isSidebarOpen && (
+                    <Accordion type="single" collapsible className="mb-1" defaultValue={location.pathname.startsWith("/icons") ? "icons" : undefined}>
+                      <AccordionItem value="icons">
+                        <AccordionTrigger
+                          className={`w-full flex items-center justify-between px-4 py-2 rounded-md text-sm focus:outline-none ${
+                            location.pathname.startsWith("/icons")
+                              ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200"
+                              : "text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                          }`}
+                          onClick={() => setSelectedComponent("Icons")}
+                        >
+                          <span>Icons</span>
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div id="icon-category-list" className="ml-4 mt-1 space-y-1">
+                            {window.iconCategoriesList &&
+                              window.iconCategoriesList.map((cat) => (
+                                <Link
+                                  key={cat}
+                                  to={`/icons?category=${encodeURIComponent(cat)}`}
+                                  className={`block px-3 py-1 rounded text-xs ${
+                                    new URLSearchParams(window.location.search).get("category") === cat
+                                      ? "bg-blue-50 text-blue-700 dark:bg-blue-800 dark:text-blue-200"
+                                      : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+                                  }`}
+                                  onClick={() => setSelectedComponent("Icons")}
+                                >
+                                  {cat}
+                                </Link>
+                              ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  )}
+                  {components.map((component) => (
+                    <Link
+                      key={component.path}
+                      to={component.path}
+                      className={`block ${isSidebarOpen ? "px-4 py-2 text-sm" : "px-1 py-2 text-xs text-center"} rounded-md ${
+                        location.pathname === component.path
                           ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200"
                           : "text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                       }`}
-                      onClick={() => setSelectedComponent("Icons")}
+                      onClick={() => setSelectedComponent(component.name)}
+                      title={component.name}
                     >
-                      <span>Icons</span>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div id="icon-category-list" className="ml-4 mt-1 space-y-1">
-                        {window.iconCategoriesList &&
-                          window.iconCategoriesList.map((cat) => (
-                            <Link
-                              key={cat}
-                              to={`/icons?category=${encodeURIComponent(cat)}`}
-                              className={`block px-3 py-1 rounded text-xs ${
-                                new URLSearchParams(window.location.search).get("category") === cat
-                                  ? "bg-blue-50 text-blue-700 dark:bg-blue-800 dark:text-blue-200"
-                                  : "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
-                              }`}
-                              onClick={() => setSelectedComponent("Icons")}
-                            >
-                              {cat}
-                            </Link>
-                          ))}
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                {components.map((component) => (
-                  <Link
-                    key={component.path}
-                    to={component.path}
-                    className={`block px-4 py-2 rounded-md text-sm ${
-                      location.pathname === component.path
-                        ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200"
-                        : "text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                    }`}
-                    onClick={() => setSelectedComponent(component.name)}
-                  >
-                    {component.name}
-                  </Link>
-                ))}
-              </nav>
-            </ScrollArea>
+                      {isSidebarOpen ? component.name : component.name[0]}
+                    </Link>
+                  ))}
+                </nav>
+              </ScrollArea>
+            </div>
           </div>
-        </div>
-
+        )}
         {/* Main Content */}
-        <div className="flex-1 w-full p-0 md:p-0 min-h-[calc(100vh-5rem)] md:ml-64">
+        <main className={`flex-1 w-full p-0 md:p-0 min-h-0 overflow-auto transition-all duration-300 ${location.pathname !== "/aichatter" ? (isSidebarOpen ? "md:ml-64" : "md:ml-16") : ""}`} style={{flexGrow: 1}}>
           {children}
-        </div>
+        </main>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -252,7 +279,7 @@ export function Layout({ children }) {
       )}
 
       {/* Footer */}
-      <footer className="h-12 md:h-16 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+      <footer className="h-12 md:h-16 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex-shrink-0">
         <div className="h-full flex items-center justify-center md:justify-between px-4 md:px-6">
           <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
             made with ❤️ by Aakash Chhoker

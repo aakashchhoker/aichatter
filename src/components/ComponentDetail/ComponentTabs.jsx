@@ -41,7 +41,7 @@ export function ComponentTabs({
         />
       </TabsContent>
 
-      {/*
+      
       <TabsContent value="practice">
         <ComponentPractice
           name={name}
@@ -51,7 +51,7 @@ export function ComponentTabs({
           transformImports={transformImports}
         />
       </TabsContent>
-      */}
+     
 
       <TabsContent value="usage">
         <ComponentUsage usage={usage} />
